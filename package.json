@@ -12,9 +12,12 @@
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@iconify/utils": "^2.1.24",
+    "@unocss/eslint-config": "^0.60.4",
     "@vitejs/plugin-vue": "^5.0.4",
     "eslint": "^9.4.0",
     "eslint-plugin-vue": "^9.26.0",
+    "unocss": "^0.60.4",
     "vite": "^5.2.0"
   }
 }

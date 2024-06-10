@@ -1,5 +1,6 @@
 import js from '@eslint/js'
 import pluginVue from 'eslint-plugin-vue'
+import unocss from '@unocss/eslint-config/flat'
 
 export default [
 	// js
@@ -40,4 +41,7 @@ export default [
 			'vue/require-typed-ref': 'error',
 		},
 	},
+
+	// unocss
+	unocss,
 ]
