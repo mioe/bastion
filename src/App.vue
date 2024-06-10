@@ -3,6 +3,10 @@ import AppHeader from './components/App/AppHeader.vue'
 
 const router = useRouter()
 const routes = router.options.routes
+
+onMounted(() => {
+	console.log('🦕 secret:', import.meta.env.VITE_APP_SECRET)
+})
 </script>
 
 <template>
