@@ -10,11 +10,13 @@ import './style.css'
 /**
  * Modules
  */
+import { pinia } from './modules/pinia'
 import { router } from './modules/vue-router'
 
 /**
  * init app
  */
 createApp(App)
+	.use(pinia)
 	.use(router)
 	.mount('#app')

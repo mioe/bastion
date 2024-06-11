@@ -34,12 +34,13 @@ export default defineConfig(({ command, mode }) => {
 				imports: [
 					'vue',
 					'vue-router',
+					'@vueuse/core',
 				],
 				dts: 'src/auto-imports.d.ts',
-				// dirs: [
-				// 	'src/composables',
-				// 	'src/stores',
-				// ],
+				dirs: [
+					// 'src/composables',
+					'src/stores',
+				],
 				vueTemplate: true,
 			}),
 		],

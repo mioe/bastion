@@ -1,8 +1,8 @@
 <script setup>
 import AppHeader from './components/App/AppHeader.vue'
 
-const router = useRouter()
-const routes = router.options.routes
+const workspacesStore = useWorkspacesStore()
+const workspaces = workspacesStore.DEMO.workspaces
 
 onMounted(() => {
 	console.log('🦕 secret:', import.meta.env.VITE_APP_SECRET)
@@ -11,17 +11,33 @@ onMounted(() => {
 
 <template>
 	<div class="relative flex flex-col">
-		<header class="flex gap-[16px] p-[8px]">
-			<RouterLink
-				v-for="route in routes"
-				:key="route.name"
-				:to="{ name: route.name }"
-			>
-				{{ route.name }}
-			</RouterLink>
-		</header>
-
 		<AppHeader />
 		<RouterView />
+
+		<main class="mx-auto px-4 py-2 container">
+			<div
+				v-for="(w, wKey) in workspaces"
+				:key="wKey"
+			>
+				{{ w.name }}
+				<div class="flex flex-wrap gap-4">
+					<a
+						v-for="(b, bIdx) in w.bookmarks"
+						:key="bIdx"
+						:href="b.url"
+						class="flex flex-col gap-1 text-center"
+					>
+						<div class="relative h-16 w-16 overflow-hidden rounded-lg bg-gray-200">
+							<img
+								:src="b.fav"
+								:alt="b.name"
+							/>
+						</div>
+
+						<p>{{ b.name }}</p>
+					</a>
+				</div>
+			</div>
+		</main>
 	</div>
 </template>
