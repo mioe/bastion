@@ -10,6 +10,7 @@ export default defineConfig({
 		presetUno(),
 		presetIcons({
 			warn: true,
+			scale: 1.5,
 			collections: {
 				mi: FileSystemIconLoader(
 					'./src/assets/icons',

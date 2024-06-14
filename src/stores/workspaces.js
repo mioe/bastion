@@ -3,6 +3,19 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useWorkspacesStore = defineStore('workspaces', () => {
+
+	const workspaces = reactive({
+		[crypto.randomUUID()]: {
+			name: 'Favorite',
+			bookmarks: [
+				{ name: 'yt', fav: 'https://www.youtube.com/s/desktop/bd305dd4/img/favicon_144x144.png', url: 'https://www.youtube.com/' },
+				{ name: 'chatgpt', fav: 'https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.82af6fe1.png', url: 'https://chatgpt.com' },
+				{ name: 'yt', fav: 'https://www.youtube.com/s/desktop/bd305dd4/img/favicon_144x144.png', url: 'https://www.youtube.com/' },
+				{ name: 'yt', fav: 'https://www.youtube.com/s/desktop/bd305dd4/img/favicon_144x144.png', url: 'https://www.youtube.com/' },
+			],
+		},
+	})
+
 	const DEMO = ref({
 		workspaces: {
 			[crypto.randomUUID()]: {
@@ -19,6 +32,7 @@ export const useWorkspacesStore = defineStore('workspaces', () => {
 
 	return {
 		DEMO,
+		workspaces,
 	}
 })
 

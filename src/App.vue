@@ -2,7 +2,7 @@
 import AppHeader from './components/App/AppHeader.vue'
 
 const workspacesStore = useWorkspacesStore()
-const workspaces = workspacesStore.DEMO.workspaces
+const workspaces = workspacesStore.workspaces
 
 onMounted(() => {
 	console.log('🦕 secret:', import.meta.env.VITE_APP_SECRET)
