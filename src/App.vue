@@ -20,14 +20,14 @@ onMounted(() => {
 				:key="wKey"
 			>
 				{{ w.name }}
-				<div class="flex flex-wrap gap-4">
+				<div class="flex flex-wrap gap-2">
 					<a
 						v-for="(b, bIdx) in w.bookmarks"
 						:key="bIdx"
 						:href="b.url"
-						class="flex flex-col gap-1 text-center"
+						class="flex flex-col gap-2 rounded-xl p-4 text-center hover:bg-$btn-hover-color"
 					>
-						<div class="relative h-16 w-16 overflow-hidden rounded-lg bg-gray-200">
+						<div class="relative h-16 w-16 overflow-hidden rounded-lg">
 							<img
 								:src="b.fav"
 								:alt="b.name"

@@ -8,7 +8,6 @@ console.log('🦕 misha')
 			left
 		</div>
 		<div>
-			right
 			<button
 				class="flex items-center justify-center p-0"
 				@click="toggleDark()"

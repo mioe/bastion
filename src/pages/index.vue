@@ -1,5 +1,5 @@
 <template>
 	<div>
-		index.vue
+		hello world
 	</div>
 </template>

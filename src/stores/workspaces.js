@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 // import { useStorage } from '@vueuse/core'
-import { ref } from 'vue'
+import { reactive } from 'vue'
 
 export const useWorkspacesStore = defineStore('workspaces', () => {
 
@@ -10,28 +10,13 @@ export const useWorkspacesStore = defineStore('workspaces', () => {
 			bookmarks: [
 				{ name: 'yt', fav: 'https://www.youtube.com/s/desktop/bd305dd4/img/favicon_144x144.png', url: 'https://www.youtube.com/' },
 				{ name: 'chatgpt', fav: 'https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.82af6fe1.png', url: 'https://chatgpt.com' },
-				{ name: 'yt', fav: 'https://www.youtube.com/s/desktop/bd305dd4/img/favicon_144x144.png', url: 'https://www.youtube.com/' },
-				{ name: 'yt', fav: 'https://www.youtube.com/s/desktop/bd305dd4/img/favicon_144x144.png', url: 'https://www.youtube.com/' },
+				{ name: 'icones', fav: 'https://icones.netlify.app/favicon.svg', url: 'https://icones.netlify.app' },
+				{ name: 'github', fav: 'https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg', url: 'https://github.com' },
 			],
 		},
 	})
 
-	const DEMO = ref({
-		workspaces: {
-			[crypto.randomUUID()]: {
-				name: 'Favorites',
-				bookmarks: [
-					{ name: 'yt', fav: 'https://www.youtube.com/s/desktop/bd305dd4/img/favicon_144x144.png', url: 'https://www.youtube.com/' },
-					{ name: 'chatgpt', fav: 'https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.82af6fe1.png', url: 'https://chatgpt.com' },
-					{ name: 'yt', fav: 'https://www.youtube.com/s/desktop/bd305dd4/img/favicon_144x144.png', url: 'https://www.youtube.com/' },
-					{ name: 'yt', fav: 'https://www.youtube.com/s/desktop/bd305dd4/img/favicon_144x144.png', url: 'https://www.youtube.com/' },
-				],
-			},
-		},
-	})
-
 	return {
-		DEMO,
 		workspaces,
 	}
 })

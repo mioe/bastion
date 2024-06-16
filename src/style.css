@@ -1,15 +1,22 @@
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	font-synthesis: none;
-	color-scheme: ligth;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
 }
 
+html:not(.dark) {
+	color-scheme: ligth;
+	background-color: #f6f7f9;
+	color: #717171;
+}
+
 html.dark {
 	color-scheme: dark;
+	background-color: #393a3d;
+	color: #b7b7b7;
 }
 
 *,
@@ -64,3 +71,55 @@ img {
 	max-width: 100%;
 	display: block;
 }
+
+
+/* > core/button */
+html:not(.dark) {
+	--btn-hover-color:  #e9eaec;
+}
+
+html.dark {
+	--btn-hover-color:  #4a4b4d;
+}
+
+button {
+	--s: 1.75rem;
+	all: unset;
+	cursor: pointer;
+	min-height: var(--s);
+	min-width: var(--s);
+	padding: 0.125rem;
+	border-radius: 0.25rem;
+	display: flex;
+	justify-items: center;
+	align-items: center;
+}
+
+button:hover,
+button:focus,
+button:focus-visible,
+button:active {
+	background-color: var(--btn-hover-color);
+}
+/* < core/button */
+
+/* > core/link */
+html:not(.dark) {
+	--link-hover-color:  #000;
+}
+
+html.dark {
+	--link-hover-color:  #fff;
+}
+
+a {
+	all: unset;
+}
+
+a:hover,
+a:focus,
+a:focus-visible,
+a:active {
+	color: var(--link-hover-color);
+}
+/* < core/link */
