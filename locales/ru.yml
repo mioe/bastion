@@ -1,0 +1,5 @@
+hello: Привет
+auth:
+  sign-in: 'Войти'
+  sign-out: 'Выйти'
+  goto: 'Goto'

@@ -6,20 +6,22 @@
 		"node": ">=20"
 	},
 	"scripts": {
-		"dev": "vite",
+		"dev": "vite --host",
 		"build": "vite build",
 		"preview": "vite preview",
-		"eslint": "eslint .",
-		"esconfig": "eslint --inspect-config"
+		"lint": "eslint .",
+		"lint-config": "eslint --inspect-config"
 	},
 	"dependencies": {
 		"@vueuse/core": "^10.10.1",
 		"pinia": "^2.1.7",
 		"vue": "^3.4.21",
+		"vue-i18n": "^9.13.1",
 		"vue-router": "^4.3.3"
 	},
 	"devDependencies": {
 		"@iconify/utils": "^2.1.24",
+		"@intlify/unplugin-vue-i18n": "^4.0.0",
 		"@unocss/eslint-config": "^0.60.4",
 		"@vitejs/plugin-vue": "^5.0.4",
 		"eslint": "^9.4.0",

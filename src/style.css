@@ -1,22 +1,24 @@
-:root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
-}
-
 html:not(.dark) {
+	--default: #f6f7f9;
 	color-scheme: ligth;
-	background-color: #f6f7f9;
 	color: #717171;
 }
 
 html.dark {
+	--default: #393a3d;
 	color-scheme: dark;
-	background-color: #393a3d;
 	color: #b7b7b7;
+}
+
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	font-size: 1rem;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+	background-color: var(--default);
 }
 
 *,
