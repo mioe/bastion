@@ -3,9 +3,11 @@ import { useFloating } from '@floating-ui/vue'
 import Settings from '~/components/Settings.vue'
 
 const route = useRoute()
+const router = useRouter()
 const appStore = useAppStore()
 const {
 	addNewWorkspace,
+	findFirstWorkspaceKey,
 	removeWorkspaceByKey,
 } = appStore
 
@@ -27,11 +29,11 @@ function onAddWorkspace() {
 }
 
 function handleRemoveWorkspace(key) {
-	console.log(route.params.id)
-	if (route.params.id === key) {
-		console.log('key', key)
-	}
 	removeWorkspaceByKey(key)
+	if (route.params.id === key) {
+		const fKey = findFirstWorkspaceKey()
+		router.push({ name: '/[id]', params: { id: fKey } })
+	}
 }
 
 watch(isOpen, val => {

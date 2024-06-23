@@ -1,15 +1,25 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { useStorage } from '@vueuse/core'
+import { computed } from 'vue'
 
 export const useAppStore = defineStore('app', () => {
 	const skipWelcomePage = useStorage('skip-welcome-page', false)
 	const workspaces = useStorage('workspaces', {})
+	const isEmptyWorkspace = computed(() => !Object.keys(workspaces.value).length)
 
 	function addNewWorkspace(name) {
 		workspaces.value[crypto.randomUUID()] = {
 			name,
 			bookmarks: [],
 		}
+	}
+
+	function findFirstWorkspaceKey() {
+		const workspaceKeys = Object.keys(workspaces.value)
+		if (!workspaceKeys.length) {
+			return null
+		}
+		return workspaceKeys[0]
 	}
 
 	function removeWorkspaceByKey(key) {
@@ -22,8 +32,10 @@ export const useAppStore = defineStore('app', () => {
 	return {
 		skipWelcomePage,
 		workspaces,
+		isEmptyWorkspace,
 
 		addNewWorkspace,
+		findFirstWorkspaceKey,
 		removeWorkspaceByKey,
 	}
 })

@@ -1,11 +1,14 @@
 <script setup>
 const router = useRouter()
 const appStore = useAppStore()
-const isEmptyWorkspace = computed(() => !Object.keys(appStore.workspaces).length)
+const { findFirstWorkspaceKey } = appStore
 
 onMounted(() => {
-	if (appStore.skipWelcomePage && !isEmptyWorkspace.value) {
-		router.push(`/${Object.keys(appStore.workspaces)[0]}`)
+	if (appStore.skipWelcomePage && !appStore.isEmptyWorkspace) {
+		const key = findFirstWorkspaceKey()
+		if (key) {
+			router.push({ name: '/[id]', params: { id: key } })
+		}
 	}
 })
 </script>
@@ -18,6 +21,6 @@ onMounted(() => {
 			v-model="appStore.skipWelcomePage"
 			type="checkbox"
 		/>
-		{{ isEmptyWorkspace }}
+		{{ appStore.isEmptyWorkspace }}
 	</main>
 </template>
