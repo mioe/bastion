@@ -1,5 +1,7 @@
 hello: Привет
 settings: Настройки
+workspace: Рабочее пространство | Рабочие пространства
+add: Добавить {0}
 page:
   index:
-    skip-welcome-page-label: Показывать начальную страницу при старте
+    skip-welcome-page-label: Скрывать начальную страницу при старте

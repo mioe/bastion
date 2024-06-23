@@ -1,5 +1,7 @@
 hello: Hello
 settings: Settings
+workspace: Workspace | Workspaces
+add: Add {0}
 page:
   index:
-    skip-welcome-page-label: Show welcome page on startup
+    skip-welcome-page-label: Hide welcome page on startup

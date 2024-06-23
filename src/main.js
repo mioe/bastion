@@ -5,6 +5,7 @@ import App from './App.vue'
  * Styles
  */
 import 'uno.css'
+import './palette.css'
 import './style.css'
 
 /**

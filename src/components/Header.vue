@@ -41,14 +41,20 @@ watch(isOpen, val => {
 		name.value = ''
 	}
 })
+
+onClickOutside(floatingRef, () => {
+	name.value = ''
+	isOpen.value = false
+})
 </script>
 
 <template>
-	<header class="mx-auto my-2 flex flex-wrap items-center justify-between gap-4 px-4 container">
+	<header class="sticky top-2 z-9 mx-auto my-2 flex items-center justify-between gap-4 rounded-lg bg-$gray-a2 px-3 py-2 backdrop-blur-md container default-border">
 		<div class="flex flex-wrap items-center gap-2">
 			<div
 				v-for="(w, wKey) in workspaces"
 				:key="wKey"
+				class="bg-$default-background-color"
 			>
 				<RouterLink
 					:to="`/${wKey}`"
@@ -65,18 +71,41 @@ watch(isOpen, val => {
 					class="relative"
 					@click="isOpen = !isOpen"
 				>
-					A
+					{{ appStore.isEmptyWorkspace ? $t('add', [$t('workspace').toLowerCase()]) : $t('add') }}
 				</button>
 
-				<input
-					v-show="isOpen"
-					ref="floatingRef"
-					v-model="name"
-					:style="floatingStyles"
-					@keyup.enter="onAddWorkspace"
-				/>
+				<Transition
+					enter-active-class="transition-transform ease-out duration-200"
+					enter-from-class="transform opacity-0 scale-95"
+					enter-to-class="transform opacity-100 scale-100"
+					leave-active-class="transition-transform ease-in duration-75"
+					leave-from-class="transform opacity-100 scale-100"
+					leave-to-class="transform opacity-0 scale-95"
+				>
+					<div
+						v-if="isOpen"
+						ref="floatingRef"
+						:style="floatingStyles"
+						class="flex items-center gap-2 rounded-lg bg-$gray-2 p-4 default-border"
+					>
+						<input
+							v-model="name"
+							@keyup.enter="onAddWorkspace"
+						/>
+						<button
+							class="bg-$yellow-10"
+							style="box-shadow: 0 0 0 1px color-mix(in oklab, var(--yellow-a7), var(--yellow-7) 25%);"
+							@click="onAddWorkspace"
+						>
+							<div class="i-mi:return">
+							</div>
+						</button>
+					</div>
+				</Transition>
 			</div>
 		</div>
-		<Settings />
+		<div class="flex flex-shrink-0">
+			<Settings />
+		</div>
 	</header>
 </template>

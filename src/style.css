@@ -1,18 +1,28 @@
 :root {
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+	}
+}
+
+:root {
+	--default-background-color: var(--color-background);
+	--default-contrast-text-color: var(--gray-12);
+	--default-link-color: var(--yellow-11);
+
+	background-color: var(--default-background-color);
+	color: var(--default-contrast-text-color);
+	font-size: .75rem;
+	line-height: 1.25;
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
-}
-
-html:not(.dark) {
-	color-scheme: light;
-}
-
-html.dark {
-	color-scheme: dark;
 }
 
 *,
@@ -58,6 +68,7 @@ ol {
 
 a {
 	text-decoration: none;
+	color: var(--default-link-color);
 }
 a:not([class]) {
 	text-decoration-skip-ink: auto;
@@ -66,4 +77,50 @@ a:not([class]) {
 img {
 	max-width: 100%;
 	display: block;
+}
+
+button {
+	all: unset;
+	cursor: pointer;
+	display: inline-flex;
+	padding: .25rem .75rem;
+	font-size: .75rem;
+	border-radius: .25rem;
+	box-shadow: 0 0 0 1px color-mix(in oklab, var(--gray-a5), var(--gray-5) 25%);
+	background-color: var(--gray-2);
+}
+
+button:hover,
+button:active,
+button:focus,
+button:focus-within,
+button:focus-visible {
+	box-shadow: 0 0 0 1px color-mix(in oklab, var(--yellow-a8), var(--yellow-8) 25%);
+}
+
+button:disabled {
+	cursor: not-allowed;
+}
+
+input {
+	display: inline-flex;
+	padding: .25rem .75rem;
+	font-size: 1rem;
+	border-radius: .25rem;
+	box-shadow: 0 0 0 1px color-mix(in oklab, var(--gray-a5), var(--gray-5) 25%);
+	background-color: var(--default-background-color);
+	border: none;
+}
+
+input:hover,
+input:active,
+input:focus,
+input:focus-within,
+input:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 1px color-mix(in oklab, var(--yellow-a8), var(--yellow-8) 25%);
+}
+
+.default-border {
+	box-shadow: 0 0 0 1px color-mix(in oklab, var(--gray-a5), var(--gray-5) 25%);
 }
