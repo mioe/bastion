@@ -1,2 +1,5 @@
 hello: Hello
 settings: Settings
+page:
+  index:
+    skip-welcome-page-label: Show welcome page on startup

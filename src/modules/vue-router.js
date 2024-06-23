@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router/auto'
 // import { getCurrentUser } from 'vuefire'
 import NotFound from '~/404.vue'
 import { routes } from 'vue-router/auto-routes'
+import { useAppStore } from '~/stores/app'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -31,6 +32,16 @@ const router = createRouter({
 // 		}
 // 	}
 // })
+
+router.beforeEach((to) => {
+	if (to.name === '/[id]') {
+		const appStore = useAppStore()
+		const { checkWorkspaceByKey } = appStore
+		if (!checkWorkspaceByKey(to.params.id)) {
+			return { name: '/' }
+		}
+	}
+})
 
 export {
 	router,

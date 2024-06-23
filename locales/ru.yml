@@ -1,2 +1,5 @@
-hello: Hello
-settings: Settings
+hello: Привет
+settings: Настройки
+page:
+  index:
+    skip-welcome-page-label: Показывать начальную страницу при старте

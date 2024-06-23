@@ -22,6 +22,11 @@ export const useAppStore = defineStore('app', () => {
 		return workspaceKeys[0]
 	}
 
+	function checkWorkspaceByKey(key) {
+		const workspaceKeys = Object.keys(workspaces.value)
+		return workspaceKeys.includes(key)
+	}
+
 	function removeWorkspaceByKey(key) {
 		delete workspaces.value[key]
 		if (!Object.keys(workspaces.value).length) {
@@ -36,6 +41,7 @@ export const useAppStore = defineStore('app', () => {
 
 		addNewWorkspace,
 		findFirstWorkspaceKey,
+		checkWorkspaceByKey,
 		removeWorkspaceByKey,
 	}
 })

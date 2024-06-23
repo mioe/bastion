@@ -15,12 +15,17 @@ onMounted(() => {
 
 <template>
 	<main class="mx-auto my-2 flex flex-col px-4 container">
-		hello world
+		<h1>hello world</h1>
 
-		<input
-			v-model="appStore.skipWelcomePage"
-			type="checkbox"
-		/>
-		{{ appStore.isEmptyWorkspace }}
+		<div v-if="!appStore.isEmptyWorkspace">
+			<input
+				id="skipWelcomePage"
+				v-model="appStore.skipWelcomePage"
+				type="checkbox"
+			/>
+			<label for="skipWelcomePage">
+				{{ $t('page.index.skip-welcome-page-label') }}
+			</label>
+		</div>
 	</main>
 </template>
