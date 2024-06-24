@@ -1,5 +1,9 @@
 <script setup>
-import { useFloating } from '@floating-ui/vue'
+import {
+	flip,
+	shift,
+	useFloating,
+} from '@floating-ui/vue'
 import Settings from '~/components/Settings.vue'
 
 const route = useRoute()
@@ -20,6 +24,9 @@ const workspaces = computed(() => appStore.workspaces)
 const { floatingStyles } = useFloating(
 	targetRef,
 	floatingRef,
+	{
+		middleware: [flip(), shift()],
+	},
 )
 
 function onAddWorkspace() {
@@ -49,7 +56,7 @@ onClickOutside(floatingRef, () => {
 </script>
 
 <template>
-	<header class="sticky top-2 z-9 mx-auto my-2 flex items-center justify-between gap-4 rounded-lg bg-$gray-a2 px-3 py-2 backdrop-blur-md container default-border">
+	<header class="sticky top-2 z-9 mx-auto my-2 flex items-center justify-between gap-4 bg-$gray-a2 px-3 py-2 backdrop-blur-md container default-border sm:rounded-lg">
 		<div class="flex flex-wrap items-center gap-2">
 			<div
 				v-for="(w, wKey) in workspaces"
@@ -94,7 +101,12 @@ onClickOutside(floatingRef, () => {
 						/>
 						<button
 							class="bg-$yellow-10"
-							style="box-shadow: 0 0 0 1px color-mix(in oklab, var(--yellow-a7), var(--yellow-7) 25%);"
+							style="
+								color: black;
+								padding-top: .45rem;
+								padding-bottom: .45rem;
+								box-shadow: 0 0 0 1px color-mix(in oklab, var(--yellow-a7), var(--yellow-7) 25%);
+							"
 							@click="onAddWorkspace"
 						>
 							<div class="i-mi:return">

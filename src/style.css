@@ -105,7 +105,7 @@ button:disabled {
 input {
 	display: inline-flex;
 	padding: .25rem .75rem;
-	font-size: 1rem;
+	font-size: 1.25rem;
 	border-radius: .25rem;
 	box-shadow: 0 0 0 1px color-mix(in oklab, var(--gray-a5), var(--gray-5) 25%);
 	background-color: var(--default-background-color);
