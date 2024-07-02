@@ -16,7 +16,10 @@ const workspaces = computed(() => appStore.workspaces)
 const popoverRef = shallowRef()
 
 function onAddWorkspace() {
-	addNewWorkspace(name.value)
+	const n = name.value.trim()
+	if (n.length) {
+		addNewWorkspace(n)
+	}
 	name.value = ''
 	popoverRef.value.close()
 }
@@ -60,7 +63,7 @@ function handleRemoveWorkspace(key) {
 						@keyup.enter="onAddWorkspace"
 					/>
 					<button
-						class="button-primary"
+						class="button-primary self-stretch"
 						@click="onAddWorkspace"
 					>
 						<div class="i-mi:return">

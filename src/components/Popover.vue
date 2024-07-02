@@ -18,20 +18,9 @@ const { floatingStyles } = useFloating(
 	},
 )
 
-const callback = reactive({
-	resolve: null,
-	reject: null,
-})
-
 function open(target) {
-	const promise = new Promise((resolve, _reject) => {
-		callback.resolve = resolve
-		callback.reject = resolve
-	})
 	targetRef.value = target
 	isOpen.value = true
-
-	return promise
 }
 
 function close() {
