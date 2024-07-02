@@ -13,10 +13,10 @@
 		"lint-config": "eslint --inspect-config"
 	},
 	"dependencies": {
-		"@floating-ui/vue": "^1.0.6",
+		"@floating-ui/vue": "^1.1.1",
 		"@vueuse/core": "^10.11.0",
 		"pinia": "^2.1.7",
-		"vue": "^3.4.30",
+		"vue": "^3.4.31",
 		"vue-i18n": "^9.13.1",
 		"vue-router": "^4.4.0"
 	},
@@ -25,11 +25,11 @@
 		"@intlify/unplugin-vue-i18n": "^4.0.0",
 		"@unocss/eslint-config": "^0.61.0",
 		"@vitejs/plugin-vue": "^5.0.5",
-		"eslint": "^9.5.0",
-		"eslint-plugin-vue": "^9.26.0",
+		"eslint": "^9.6.0",
+		"eslint-plugin-vue": "^9.27.0",
 		"unocss": "^0.61.0",
 		"unplugin-auto-import": "^0.17.6",
 		"unplugin-vue-router": "^0.10.0",
-		"vite": "^5.3.1"
+		"vite": "^5.3.2"
 	}
 }

@@ -1,9 +1,5 @@
 <script setup>
-import {
-	flip,
-	shift,
-	useFloating,
-} from '@floating-ui/vue'
+import Popover from '~/components/Popover.vue'
 import Settings from '~/components/Settings.vue'
 
 const route = useRoute()
@@ -15,24 +11,14 @@ const {
 	removeWorkspaceByKey,
 } = appStore
 
-const targetRef = shallowRef()
-const floatingRef = shallowRef()
-const isOpen = ref(false)
 const name = ref('')
 const workspaces = computed(() => appStore.workspaces)
-
-const { floatingStyles } = useFloating(
-	targetRef,
-	floatingRef,
-	{
-		middleware: [flip(), shift()],
-	},
-)
+const popoverRef = shallowRef()
 
 function onAddWorkspace() {
 	addNewWorkspace(name.value)
 	name.value = ''
-	isOpen.value = false
+	popoverRef.value.close()
 }
 
 function handleRemoveWorkspace(key) {
@@ -42,17 +28,6 @@ function handleRemoveWorkspace(key) {
 		router.push({ name: '/[id]', params: { id: fKey } })
 	}
 }
-
-watch(isOpen, val => {
-	if (!val) {
-		name.value = ''
-	}
-})
-
-onClickOutside(floatingRef, () => {
-	name.value = ''
-	isOpen.value = false
-})
 </script>
 
 <template>
@@ -74,46 +49,24 @@ onClickOutside(floatingRef, () => {
 			</div>
 			<div>
 				<button
-					ref="targetRef"
 					class="relative"
-					@click="isOpen = !isOpen"
+					@click="popoverRef.open($event.target)"
 				>
 					{{ appStore.isEmptyWorkspace ? $t('add', [$t('workspace').toLowerCase()]) : $t('add') }}
 				</button>
-
-				<Transition
-					enter-active-class="transition-transform ease-out duration-200"
-					enter-from-class="transform opacity-0 scale-95"
-					enter-to-class="transform opacity-100 scale-100"
-					leave-active-class="transition-transform ease-in duration-75"
-					leave-from-class="transform opacity-100 scale-100"
-					leave-to-class="transform opacity-0 scale-95"
-				>
-					<div
-						v-if="isOpen"
-						ref="floatingRef"
-						:style="floatingStyles"
-						class="flex items-center gap-2 rounded-lg bg-$gray-2 p-4 default-border"
+				<Popover ref="popoverRef">
+					<input
+						v-model="name"
+						@keyup.enter="onAddWorkspace"
+					/>
+					<button
+						class="button-primary"
+						@click="onAddWorkspace"
 					>
-						<input
-							v-model="name"
-							@keyup.enter="onAddWorkspace"
-						/>
-						<button
-							class="bg-$yellow-10"
-							style="
-								color: black;
-								padding-top: .45rem;
-								padding-bottom: .45rem;
-								box-shadow: 0 0 0 1px color-mix(in oklab, var(--yellow-a7), var(--yellow-7) 25%);
-							"
-							@click="onAddWorkspace"
-						>
-							<div class="i-mi:return">
-							</div>
-						</button>
-					</div>
-				</Transition>
+						<div class="i-mi:return">
+						</div>
+					</button>
+				</Popover>
 			</div>
 		</div>
 		<div class="flex flex-shrink-0">

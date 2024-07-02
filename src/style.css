@@ -102,6 +102,20 @@ button:disabled {
 	cursor: not-allowed;
 }
 
+.button-primary {
+	color: #1e1f24;
+	background-color: var(--yellow-10);
+	box-shadow: 0 0 0 1px color-mix(in oklab, var(--yellow-a7), var(--yellow-7) 25%);
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+	@media (color-gamut: p3) {
+		.button-primary {
+			color: oklch(24.1% 0.01 277.7);
+		}
+	}
+}
+
 input {
 	display: inline-flex;
 	padding: .25rem .75rem;
