@@ -66,8 +66,7 @@ function handleRemoveWorkspace(key) {
 						class="button-primary self-stretch"
 						@click="onAddWorkspace"
 					>
-						<div class="i-mi:return">
-						</div>
+						<div class="i-mi:return" />
 					</button>
 				</Popover>
 			</div>

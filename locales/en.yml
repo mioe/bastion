@@ -1,6 +1,7 @@
 hello: Hello
 settings: Settings
 workspace: Workspace | Workspaces
+bookmark: Bookmark | Bookmarks
 add: Add {0}
 page:
   index:

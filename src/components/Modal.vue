@@ -9,13 +9,13 @@ defineProps({
 
 <template>
 	<button :popovertarget="id">
-		Open Popover
+		<slot name="default" />
 	</button>
 
 	<div
 		:id="id"
 		popover
 	>
-		<p>I am a popover with more information.</p>
+		<slot name="body" />
 	</div>
 </template>
