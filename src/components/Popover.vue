@@ -55,8 +55,7 @@ defineExpose({
 			:style="floatingStyles"
 			class="flex items-center gap-2 rounded-lg bg-$gray-2 p-4 default-border"
 		>
-			<slot>
-			</slot>
+			<slot />
 		</div>
 	</Transition>
 </template>

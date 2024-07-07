@@ -34,6 +34,20 @@ export const useAppStore = defineStore('app', () => {
 		}
 	}
 
+	function addNewBookmark(workspaceKey, bookmarkValue) {
+		const workspace = workspaces.value[workspaceKey]
+		if (workspace) {
+			workspace.bookmarks.push(bookmarkValue)
+		}
+	}
+
+	function removeBookmarkByIdx(workspaceKey, bookmarkIdx) {
+		const workspace = workspaces.value[workspaceKey]
+		if (workspace) {
+			workspace.bookmarks.splice(bookmarkIdx, 1)
+		}
+	}
+
 	return {
 		skipWelcomePage,
 		workspaces,
@@ -43,6 +57,8 @@ export const useAppStore = defineStore('app', () => {
 		findFirstWorkspaceKey,
 		checkWorkspaceByKey,
 		removeWorkspaceByKey,
+		addNewBookmark,
+		removeBookmarkByIdx,
 	}
 })
 

@@ -1,4 +1,6 @@
 <script setup>
+import MainLayout from '~/components/MainLayout.vue'
+
 const router = useRouter()
 const appStore = useAppStore()
 const { findFirstWorkspaceKey } = appStore
@@ -14,7 +16,7 @@ onMounted(() => {
 </script>
 
 <template>
-	<main class="mx-auto my-2 flex flex-col px-4 container">
+	<MainLayout>
 		<h1>hello world</h1>
 
 		<div v-if="!appStore.isEmptyWorkspace">
@@ -27,5 +29,5 @@ onMounted(() => {
 				{{ $t('page.index.skip-welcome-page-label') }}
 			</label>
 		</div>
-	</main>
+	</MainLayout>
 </template>
