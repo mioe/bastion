@@ -3,6 +3,10 @@ settings: Настройки
 workspace: Рабочее пространство | Рабочие пространства
 bookmark: Закладку | Закладки
 add: Добавить {0}
+title: Заголовок
+url: Ссылка
+current: Текущий {0}
+locale: Язык
 page:
   index:
     skip-welcome-page-label: Скрывать начальную страницу при старте

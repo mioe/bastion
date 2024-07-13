@@ -47,12 +47,12 @@ function onSubmit() {
 						<input
 							v-model="formData.title"
 							type="text"
-							placeholder="title"
+							:placeholder="$t('title')"
 						/>
 						<input
 							v-model="formData.href"
 							type="url"
-							placeholder="url"
+							:placeholder="$t('url')"
 						/>
 						<button
 							class="button-primary self-stretch justify-center py-2.5"

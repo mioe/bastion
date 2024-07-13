@@ -118,7 +118,7 @@ button:disabled {
 	}
 }
 
-input {
+input, select {
 	display: inline-flex;
 	padding: .25rem .75rem;
 	font-size: 1.5rem;
@@ -129,15 +129,19 @@ input {
 	border: none;
 }
 
-input:hover,
-input:active,
-input:focus,
-input:focus-within,
-input:focus-visible {
+input:hover, select:hover,
+input:active, select:active,
+input:focus, select:focus,
+input:focus-within, select:focus-within,
+input:focus-visible, select:focus-visible {
 	outline: none;
 	box-shadow: 0 0 0 1px color-mix(in oklab, var(--yellow-a8), var(--yellow-8) 25%);
 }
 
 .default-border {
 	box-shadow: 0 0 0 1px color-mix(in oklab, var(--gray-a5), var(--gray-5) 25%);
+}
+
+::backdrop {
+	backdrop-filter: blur(3px);
 }

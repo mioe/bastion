@@ -3,6 +3,10 @@ settings: Settings
 workspace: Workspace | Workspaces
 bookmark: Bookmark | Bookmarks
 add: Add {0}
+title: Title
+url: Url
+current: Current {0}
+locale: Locale
 page:
   index:
     skip-welcome-page-label: Hide welcome page on startup
